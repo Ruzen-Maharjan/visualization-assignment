@@ -8,16 +8,19 @@ This program created three graphs using World Bank Data:
     3. Scatter plot (GDP vs Life Expectancy in 2022)
     
 """
+"""
 
+Imports
+
+"""
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df_gdp = pd.read_csv("gdp.csv", skiprows = 4)
-df_life = pd.read_csv("life_expectancy.csv", skiprows = 4) 
+"""
+Functions
 
-df_gdp = df_gdp.set_index("Country Name")
-df_life = df_life.set_index("Country Name")
-
+"""
+def plot_line_gdp(df_gdp):
 """
 Line plot
 This creates a line plot of GDP from 2000 to 2022.
@@ -43,6 +46,7 @@ plt.tight_layout()
 plt.savefig("GDP.png")
 plt.show()  
 
+def plot_bar_gdp_2022(df_gdp):
 """
 Bar Chart
 This creates a bar chart comparing GDP in 2022
@@ -62,6 +66,7 @@ plt.ylabel("GDP IN US$")
 plt.savefig("comparison.png")
 plt.show()
 
+def plot_scatter_gdp_life(df_gdp, df_life):
 """
 Scatter plot
 This creates a scatter plot of GDP VS LIFE EXPECTANCY in 2022
@@ -93,8 +98,32 @@ plt.tight_layout()
 plt.savefig("scatter.png")
 plt.show()
 
+"""
+Main program
+"""
+
+"""
+Read data (Skip first 4 rows if using World Bank CSV)
+"""
+df_gdp = pd.read_csv("gdp.csv", skiprows = 4)
+df_life = pd.read_csv("life_expectancy.csv", skiprows = 4) 
+
+"""
+Set country name as index
+"""
+
+df_gdp = df_gdp.set_index("Country Name")
+df_life = df_life.set_index("Country Name")
+
+"""
+Call functions
+"""
+plot_line_gdp(df_gdp)
+plot_bar_gdp_2022(df_gdp)
+plot_scatter_gdp_life(df_gdp, df_life)
 
 
 
   
+
 
