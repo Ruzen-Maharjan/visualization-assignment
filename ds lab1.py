@@ -103,7 +103,7 @@ Main program
 """
 
 """
-Read data (Skip first 4 rows if using World Bank CSV)
+Read data (Skip first 4 rows using skiprows CSV)
 """
 df_gdp = pd.read_csv("gdp.csv", skiprows = 4)
 df_life = pd.read_csv("life_expectancy.csv", skiprows = 4) 
@@ -125,5 +125,6 @@ plot_scatter_gdp_life(df_gdp, df_life)
 
 
   
+
 
 
